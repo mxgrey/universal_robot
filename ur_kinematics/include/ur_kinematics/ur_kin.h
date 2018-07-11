@@ -40,19 +40,7 @@
 
 #ifdef UR10_PARAMS
 #define UR_NAMESPACE ur10
-#endif
-
-#ifdef UR5_PARAMS
-#define UR_NAMESPACE ur5
-#endif
-
-#ifdef UR3_PARAMS
-#define UR_NAMESPACE ur3
-#endif
-
-#ifdef UR10_PARAMS
-#define UR_NAMESPACE ur10
-#elif UR5_PARAMS
+#elif defined UR5_PARAMS
 #define UR_NAMESPACE ur5
 #else
 #define UR_NAMESPACE ur3
