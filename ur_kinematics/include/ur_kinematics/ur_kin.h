@@ -50,6 +50,14 @@
 #define UR_NAMESPACE ur3
 #endif
 
+#ifdef UR10_PARAMS
+#define UR_NAMESPACE ur10
+#elif UR5_PARAMS
+#define UR_NAMESPACE ur5
+#else
+#define UR_NAMESPACE ur3
+#endif
+
 // These kinematics find the tranfrom from the base link to the end effector.
 // Though the raw D-H parameters specify a transform from the 0th link to the 6th link,
 // offset transforms are specified in this formulation.
@@ -68,7 +76,7 @@
 //  0,  0,  0,  1
 
 namespace ur_kinematics {
-namespace UR_NAMESPACE {
+inline namespace UR_NAMESPACE {
   // @param q       The 6 joint values
   // @param T       The 4x4 end effector pose in row-major ordering
   void forward(const double* q, double* T);
