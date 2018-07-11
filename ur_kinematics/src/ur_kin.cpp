@@ -351,7 +351,23 @@ namespace ur_kinematics {
     return num_sols;
   }
   }
-};
+
+  void forward(const double *q, double *T)
+  {
+    UR_NAMESPACE::forward(q, T);
+  }
+
+  void forward_all(const double *q, double *T1, double *T2, double *T3,
+                                    double *T4, double *T5, double *T6)
+  {
+    UR_NAMESPACE::forward_all(q, T1, T2, T3, T4, T5, T6);
+  }
+
+  int inverse(const double *T, double *q_sols, double q6_des)
+  {
+    return UR_NAMESPACE::inverse(T, q_sols, q6_des);
+  }
+}
 
 
 #define IKFAST_HAS_LIBRARY
